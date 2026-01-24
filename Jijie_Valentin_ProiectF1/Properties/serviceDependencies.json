@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Jijie_Valentin_ProiectF1Context"
+    }
+  }
+}
