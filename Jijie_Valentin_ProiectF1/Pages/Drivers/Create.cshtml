@@ -1,13 +1,15 @@
 ﻿@page
 @model Jijie_Valentin_ProiectF1.Pages.Drivers.CreateModel
+@using Jijie_Valentin_ProiectF1
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<SharedResource> Localizer
 
         @{
         ViewData["Title"] = "Create";
         }
         
-        <h1>Create</h1>
+<h1>@Localizer["Create"]</h1>
         
-    <h4>Driver</h4>
+    <h4>@Localizer["Driver"]</h4>
     <hr />
     <div class="row">
     <div class="col-md-4">
@@ -35,19 +37,19 @@
                 <select asp-for="Driver.TeamID"
                         class="form-control"
                         asp-items="ViewBag.TeamID">
-                    <option value="">-- Select Team --</option>
+                    <option value="">-- @Localizer["Select Team"] --</option>
                 </select>
                 <span asp-validation-for="Driver.TeamID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="@Localizer["Create"]" class="btn btn-primary"/>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">@Localizer["Back"]</a>
 </div>
 
 @section Scripts {

@@ -1,14 +1,15 @@
 ﻿@page
 @model Jijie_Valentin_ProiectF1.Pages.Drivers.DetailsModel
-
+@using Jijie_Valentin_ProiectF1
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<SharedResource> Localizer
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@Localizer["Details"]</h1>
 
 <div>
-    <h4>Driver</h4>
+    <h4>@Localizer["Driver"]</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -38,6 +39,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Driver.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Driver.ID">@Localizer["Edit"]</a> |
+    <a asp-page="./Index">@Localizer["Back"]</a>
 </div>

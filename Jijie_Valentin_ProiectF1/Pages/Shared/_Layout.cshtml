@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Jijie_Valentin_ProiectF1
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<SharedResource> Localizer
+@using System.Globalization
+@{
+    var currentCulture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var returnUrl = Context.Request.Path + Context.Request.QueryString;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,7 +20,27 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Formula One Database</a>
+                <form asp-page="/SetLanguage" method="get">
+
+                    @{
+                        var culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+                    }
+
+                    <select name="culture"
+                            onchange="this.form.submit()"
+                            class="form-select">
+
+                        <option value="en" selected="@(culture == "en")">English</option>
+                        <option value="ro" selected="@(culture == "ro")">Română</option>
+
+                    </select>
+
+                    <input type="hidden"
+                           name="returnUrl"
+                           value="@($"{Context.Request.Path}{Context.Request.QueryString}")" />
+
+                </form>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Formula 1</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,22 +48,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-page="/Index">@Localizer["Home"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Seasons/Index">Seasons</a>
+                            <a class="nav-link text-dark" asp-page="/Seasons/Index">@Localizer["Seasons"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Teams/Index">Teams</a>
+                            <a class="nav-link text-dark" asp-page="/Teams/Index">@Localizer["Teams"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Drivers/Index">Drivers</a>
+                            <a class="nav-link text-dark" asp-page="/Drivers/Index">@Localizer["Drivers"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Races/Index">Races</a>
+                            <a class="nav-link text-dark" asp-page="/Races/Index">@Localizer["Races"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Results/Index">Results</a>
+                            <a class="nav-link text-dark" asp-page="/Results/Index">@Localizer["Results"]</a>
                         </li>
                     </ul>
                 </div>

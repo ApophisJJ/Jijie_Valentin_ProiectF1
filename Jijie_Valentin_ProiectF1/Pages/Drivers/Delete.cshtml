@@ -1,15 +1,16 @@
 ﻿@page
 @model Jijie_Valentin_ProiectF1.Pages.Drivers.DeleteModel
-
+@using Jijie_Valentin_ProiectF1
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<SharedResource> Localizer
 @{
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1>@Localizer["Delete"]</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>@Localizer["Sure"]</h3>
 <div>
-    <h4>Driver</h4>
+    <h4>@Localizer["Driver"]</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -40,7 +41,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Driver.ID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="@Localizer["Delete"]" class="btn btn-danger" /> |
+        <a asp-page="./Index">@Localizer["Back"]</a>
     </form>
 </div>

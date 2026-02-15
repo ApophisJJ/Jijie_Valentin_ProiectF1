@@ -1,13 +1,14 @@
 ﻿@page
 @model Jijie_Valentin_ProiectF1.Pages.Drivers.EditModel
-
+@using Jijie_Valentin_ProiectF1
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<SharedResource> Localizer
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>@Localizer["Edit"]</h1>
 
-<h4>Driver</h4>
+<h4>@Localizer["Driver"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -38,14 +39,14 @@
                 <span asp-validation-for="Driver.TeamID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="@Localizer["Save"]" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">@Localizer["Back"]</a>
 </div>
 
 @section Scripts {

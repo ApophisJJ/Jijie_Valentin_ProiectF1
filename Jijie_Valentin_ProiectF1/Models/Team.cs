@@ -8,6 +8,7 @@ namespace Jijie_Valentin_ProiectF1.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Team")]
         public string TeamName { get; set; }
 
         public ICollection<Driver>? Drivers { get; set; }
